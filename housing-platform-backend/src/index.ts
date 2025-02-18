@@ -15,6 +15,9 @@ app.use(express.json());
 
 // Routes
 app.use("/api/users", userRoutes);
+app.get("/", (req, res) => {
+    res.send("Welcome to Housing Platform API");
+  });
 
 // Start server
 app.listen(PORT, () => {

@@ -2,9 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import helmet from "helmet";
+import userRoutes from "./routes/userRoutes";
 
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -13,10 +13,8 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-// Root route
-app.get("/", (req, res) => {
-  res.send("Express.js + TypeScript Server is Running!");
-});
+// Routes
+app.use("/api/users", userRoutes);
 
 // Start server
 app.listen(PORT, () => {
